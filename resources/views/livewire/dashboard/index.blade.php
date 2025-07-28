@@ -6,7 +6,8 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Tasks</p>
-                        <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">127</h3>
+                        <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">
+                            {{ $totaltasks ?? 'No task available now' }}</h3>
                     </div>
                     <div class="rounded-full bg-blue-100 p-3 dark:bg-blue-900">
                         <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
@@ -24,7 +25,8 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Users</p>
-                        <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">42</h3>
+                        <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">
+                            {{ $totalusers ?? 'Not users are added yet' }}</h3>
                     </div>
                     <div class="rounded-full bg-green-100 p-3 dark:bg-green-900">
                         <svg class="h-6 w-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor"
@@ -42,7 +44,8 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Roles</p>
-                        <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">5</h3>
+                        <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">
+                            {{ $totalroles ?? 'roles are not created yet' }}</h3>
                     </div>
                     <div class="rounded-full bg-purple-100 p-3 dark:bg-purple-900">
                         <svg class="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor"
@@ -60,7 +63,8 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Permissions</p>
-                        <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">18</h3>
+                        <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">{{ $totalpermissions ?? '0' }}
+                        </h3>
                     </div>
                     <div class="rounded-full bg-yellow-100 p-3 dark:bg-yellow-900">
                         <svg class="h-6 w-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor"
@@ -74,7 +78,7 @@
             </div>
 
             <!-- Total Likes Card -->
-            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            {{-- <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Likes</p>
@@ -91,7 +95,7 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- Task Status and User Roles Section -->
@@ -103,28 +107,31 @@
                     <div>
                         <div class="mb-1 flex items-center justify-between">
                             <span class="text-sm font-medium text-gray-600 dark:text-gray-300">To Do</span>
-                            <span class="text-sm font-medium text-gray-600 dark:text-gray-300">48</span>
+                            <span
+                                class="text-sm font-medium text-gray-600 dark:text-gray-300">{{ $todo }}</span>
                         </div>
                         <div class="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
-                            <div class="h-2 rounded-full bg-blue-600" style="width: 38%"></div>
+                            <div class="h-2 rounded-full bg-blue-600" style="width: {{ $todo }}%"></div>
                         </div>
                     </div>
                     <div>
                         <div class="mb-1 flex items-center justify-between">
                             <span class="text-sm font-medium text-gray-600 dark:text-gray-300">In Progress</span>
-                            <span class="text-sm font-medium text-gray-600 dark:text-gray-300">59</span>
+                            <span
+                                class="text-sm font-medium text-gray-600 dark:text-gray-300">{{ $inprogess }}</span>
                         </div>
                         <div class="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
-                            <div class="h-2 rounded-full bg-yellow-500" style="width: 46%"></div>
+                            <div class="h-2 rounded-full bg-yellow-500" style="width: {{ $inprogess }}%"></div>
                         </div>
                     </div>
                     <div>
                         <div class="mb-1 flex items-center justify-between">
                             <span class="text-sm font-medium text-gray-600 dark:text-gray-300">Done</span>
-                            <span class="text-sm font-medium text-gray-600 dark:text-gray-300">20</span>
+                            <span
+                                class="text-sm font-medium text-gray-600 dark:text-gray-300">{{ $done }}</span>
                         </div>
                         <div class="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
-                            <div class="h-2 rounded-full bg-green-600" style="width: 16%"></div>
+                            <div class="h-2 rounded-full bg-green-600" style="width: {{ $done }}%"></div>
                         </div>
                     </div>
                 </div>
@@ -137,12 +144,13 @@
                     <div>
                         <div class="mb-1 flex items-center justify-between">
                             <span class="text-sm font-medium text-gray-600 dark:text-gray-300">Admin</span>
-                            <span class="text-sm font-medium text-gray-600 dark:text-gray-300">3</span>
+                            <span
+                                class="text-sm font-medium text-gray-600 dark:text-gray-300">{{ $admin }}</span>
                         </div>
                         <div class="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
-                            <div class="h-2 rounded-full bg-red-600" style="width: 7%"></div>
+                            <div class="h-2 rounded-full bg-red-600" style="width: {{ $admin }}%"></div>
                         </div>
-                    </div>
+                        {{-- </div>
                     <div>
                         <div class="mb-1 flex items-center justify-between">
                             <span class="text-sm font-medium text-gray-600 dark:text-gray-300">Manager</span>
@@ -178,13 +186,13 @@
                         <div class="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
                             <div class="h-2 rounded-full bg-cyan-600" style="width: 10%"></div>
                         </div>
+                    </div> --}}
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Recent Tasks Table -->
-        <div class="rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            <!-- Recent Tasks Table -->
+            {{-- <div class="rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
             <div class="p-6">
                 <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Recent Tasks</h3>
                 <div class="overflow-x-auto">
@@ -318,5 +326,5 @@
                     </table>
                 </div>
             </div>
+        </div> --}}
         </div>
-    </div>
