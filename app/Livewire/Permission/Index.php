@@ -6,6 +6,7 @@ use Flux\Flux;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 
 class Index extends Component
@@ -29,6 +30,7 @@ class Index extends Component
     #[On('permissionCreated')]
     public function permissionCreated($message)
     {
+        $this->dispatch('dashboardpermissions',Auth::user()->name);
         session()->flash('success', $message);
     }
 
