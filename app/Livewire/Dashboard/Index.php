@@ -17,4 +17,9 @@ class Index extends Component
         dd($name);
     }
 
+      #[On('dashboardrole')]
+      public function dashboardrole($name){
+      dd($name);
+      }
+
 }

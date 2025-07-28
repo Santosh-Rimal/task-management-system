@@ -5,6 +5,7 @@ namespace App\Livewire\Permission;
 use Flux\Flux;
 use Livewire\Component;
 use App\Livewire\Permission\Index;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 
 class Create extends Component
@@ -26,6 +27,7 @@ class Create extends Component
        Flux::modal('create-permission')->close();
        $this->dispatch('permissionCreated', 'Permission created successfully.');
        $this->dispatch('reload');
+       
     }
     public function resetForm()
     {

@@ -30,7 +30,7 @@ class Index extends Component
     #[On('permissionCreated')]
     public function permissionCreated($message)
     {
-        $this->dispatch('dashboardpermissions',Auth::user()->name);
+           $this->dispatch('dashboardpermissions',Auth::user()->name);
         session()->flash('success', $message);
     }
 
