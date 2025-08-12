@@ -12,10 +12,12 @@ class actionbutton extends Component
      * Create a new component instance.
      */
 
-     public $id, $variant, $class, $action, $button;
-    public function __construct(string $id, string $variant = 'primary', string $class = 'blue', string $action , string $button = 'Action')
+     public $id, $variant, $class, $color, $action, $button;
+    public function __construct(string $id,string $color='rose', string $variant = 'primary', string $class = 'blue', string
+    $action , string $button = 'Action')
     {
         $this->id = $id;
+        $this->color = $color;
         $this->variant = $variant;
         $this->class = $class;
         $this->action = $action;

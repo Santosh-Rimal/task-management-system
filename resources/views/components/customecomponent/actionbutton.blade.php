@@ -1,3 +1,4 @@
- <button class="{{ $class }} cursor-pointer" wire:click="{{ $action }}({{ $id }})">
+ <flux:button class="cursor-pointer" variant="primary" wire:click="{{ $action }}({{ $id }})"
+     color="{{ $color ?? 'rose' }}">
      {{ $button ?? 'Action' }}
- </button>
+ </flux:button>
