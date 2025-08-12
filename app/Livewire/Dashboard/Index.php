@@ -21,9 +21,10 @@ class Index extends Component
     {
         $this->totaltasks=Task::count();
         $this->totalusers=User::count();
-       $this->admin = User::whereHas('roles', function ($query) {
-       $query->where('role', 'admin');
+       $this->admin = User::with('roles', function ($query) {
+       $query->where('name', 'admin');
        })->count();
+    //    dd($this->admin);
         $this->totalroles=Role::count();
         $this->totalpermissions=Permission::count();
         $this->todo=Task::where('ststus','todo')->count();
@@ -31,14 +32,4 @@ class Index extends Component
         $this->done=Task::where('ststus','done')->count();
         
     }
-    #[On('dashboardpermissions')]
-    public function dashboardpermissions($name){
-        dd($name);
-    }
-
-      #[On('dashboardrole')]
-      public function dashboardrole($name){
-      dd($name);
-      }
-
 }

@@ -61,17 +61,18 @@
                                 Jun 12, 2023
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
-                                <x-customecomponent.actionbutton
-                                    class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-1 px-3 rounded text-sm"
-                                    id="{{ $role->id }}" variant="primary" button="Edit" action="edit" />
-
-                                <x-customecomponent.actionbutton
-                                    class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-1 px-3 rounded text-sm"
-                                    id="{{ $role->id }}" variant="primary" button="Show" action="show" />
-
-                                <x-customecomponent.actionbutton
-                                    class="bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded text-sm"
-                                    id="{{ $role->id }}" variant="primary" button="Delete" action="delete" />
+                                @can('roles.edit')
+                                    <x-customecomponent.actionbutton class="cursor-pointer" id="{{ $role->id }}"
+                                        color="green" variant="primary" button="Edit" action="edit" />
+                                @endcan
+                                @can('role.single.view')
+                                    <x-customecomponent.actionbutton class="cursor-pointer" id="{{ $role->id }}"
+                                        color="amber" variant="primary" button="Show" action="show" />
+                                @endcan
+                                @can('roles.delete')
+                                    <x-customecomponent.actionbutton class="cursor-pointer" id="{{ $role->id }}"
+                                        color="rose" variant="primary" button="Delete" action="delete" />
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
