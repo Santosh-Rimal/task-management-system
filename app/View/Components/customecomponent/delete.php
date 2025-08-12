@@ -24,6 +24,6 @@ class delete extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.customecomponent.deletemessage');
+        return view('components.customecomponent.delete');
     }
 }
