@@ -35,10 +35,10 @@
             </flux:navlist.group>
 
             <flux:navlist.group class="grid" :heading="__('Tasks')">
-                {{-- @can('tasks.view') --}}
-                <flux:navlist.item icon="clipboard-document-list" :href="route('tasks')"
-                    :current="request()->routeIs('tasks')" wire:navigate>{{ __('Task') }}</flux:navlist.item>
-                {{-- @endcan --}}
+                @can('tasks.view')
+                    <flux:navlist.item icon="clipboard-document-list" :href="route('tasks')"
+                        :current="request()->routeIs('tasks')" wire:navigate>{{ __('Task') }}</flux:navlist.item>
+                @endcan
             </flux:navlist.group>
 
         </flux:navlist>
