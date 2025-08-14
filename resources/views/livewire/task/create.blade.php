@@ -34,8 +34,8 @@
 
         <label for="priority">Priority</label>
         <select class="block w-full mt-2 p-2 border rounded" wire:model="priority">
-            <option selected disabled>Select priority level</option>
-            <option value="low">Low</option>
+            <option>Select priority level</option>
+            <option selected value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
         </select>
